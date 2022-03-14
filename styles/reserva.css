@@ -1,0 +1,299 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content{
+    flex-grow: 1;
+}
+
+/*Página de Reserva*/
+
+h2, .valorConsulta{
+    text-align: center;
+}
+
+h3, .txtEscolha{
+    margin-left: 300px;
+}
+
+h3{
+    /* display: block; */
+    margin-top: 60px;
+}
+
+/*Barra de Progresso*/
+
+.barra-container{
+    max-width: 1000px;
+    margin: 20px auto;
+    position: relative;
+
+}
+
+.barra-progresso{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.barra-progresso li::before{
+    content: '';
+    width: 30px;
+    height: 30px;
+    border: solid 1px #2d3332;
+    border-radius: 50%;
+    display: flex;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.topo{
+    position: absolute;
+    width: 112px;
+    top: 4px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+}
+
+.topo1{
+    width: 93px;
+}
+
+.topo2{
+    width: 95px;
+}
+
+.barra-progresso li.ativado::before{
+    background-color: #05a78e;
+}
+
+.barra-progresso li::after{
+    content: '';
+    position: absolute;
+    width: 750px;
+    height: 1px;
+    background-color: #2d3332;
+    top: 15px;
+    left: 130px;
+    z-index: -1;
+}
+
+@media(max-width: 960px){
+
+    .barra-progresso li::after{
+        width: 290px;
+        left: 60px;
+    }
+
+    .barra-progresso li {
+        font-size: 0px;
+    }
+
+    .topo{
+        width: 31px;
+    }
+}
+
+.barra-progresso li:first-child ::after{
+    content: none;
+}
+
+/*Escolhe animal*/
+
+.escolheAnimal{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    justify-content: space-evenly;
+    max-width: 960px;
+}
+
+.escolheAnimal > label{
+    display: flex;
+    position: relative;
+    margin: 10px;
+    flex: 0 0 150px;
+    width: 130px;
+    height: 130px;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    border: solid 2px #2d333225;
+    transition: 0.6s;
+}
+
+.escolheAnimal  label.escolheuPet{
+    border-color: solid 2px #05a78e;
+}
+
+.escolheAnimal > label > i{
+    font-size: 35px;
+}
+
+.navegaTelas::before{
+    content: '';
+    display: block;
+    margin: 20px auto;
+    width: 825px;
+    height: 1px;
+    border: solid 1px #2d333240;
+    background-color: #2d333240;
+}
+
+.navegaTelas > span{
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: 40px auto;
+}
+
+.secundario{
+    background-color: none;
+    border-color: solid 2px #2d3332;
+    text-transform: uppercase;
+    height: 44px;
+    width: 165px;
+    font-weight: 500;
+    margin-left: 300px;
+    cursor: pointer;
+}
+
+.primario2{
+    background-color: #05a78e;
+    height: 44px;
+    width: 165px;
+    color: #f1f8ff;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-right: 300px;
+    cursor: pointer;
+}
+
+.escolheuPet{
+    position: absolute;
+    top: 0px;
+    right: 0;
+}
+
+.escondeEscolha{
+    display:none;
+}
+
+@media(max-width:960px){
+
+    .navegaTelas::before{
+        width: 350px;
+    }
+
+    .navegaTelas > span{
+        display: flex;
+        justify-content: space-between;
+        max-width: 100%;
+        margin: 40px auto;
+    }
+    
+    .secundario{
+        margin-left: 20px;
+    }
+    
+    .primario2{
+        margin-right: 20px;
+    }
+
+    h3, .txtEscolha{
+        margin-left: 20px;
+    }
+
+}
+
+/*Slider pag veterinario*/
+
+.swiper {
+    max-width: 850px;
+    height: 200px;
+}
+
+.swiper-slide{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    justify-self: center;
+    /* background-color: #2d333210; */
+}
+
+.card{
+    display: flex;
+    height: 160px;
+    width: 70%;
+    flex-direction: column;
+    background-color: #fff;
+    justify-content: space-around;
+    align-items: center;
+    border: solid 2px #05a78e50;
+    transition: 0.5s;
+    position: relative;
+}
+
+.card:hover{
+    border-color: #05a78e;
+}
+
+.card-img{
+    width: 70px;
+    height: 70px;
+    background-color: #2d333270;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.card-img img{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    margin: 5px auto;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+@media(max-width:960px){
+    .swiper {
+        margin-top: 50px;
+        max-width: 350px;
+    }
+
+    .card{
+        width: 100%;
+    }
+
+    .nome{
+        font-size: 9px;
+    }
+
+    .profissao{
+        font-size: 10px;
+    }
+}
+
+.swiper-button-next, 
+.swiper-button-prev{
+    color: #2d3332;
+}
+
+.detalhes{
+    text-align: center;
+}
+
+.nome{
+    font-size: 12px;
+}
+
+.profissao{
+    color: #05a78e;
+}

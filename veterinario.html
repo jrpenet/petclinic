@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link href="https://unpkg.com/swiper@8/swiper-bundle.min.css" rel="stylesheet"/>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/reserva.css">
+    <link rel="stylesheet" href="./styles/horarios.css">
+    <title>Pet Clinic - Veterinários</title>
+</head>
+<body>
+    <div class="main-content">
+        <header>
+            <div>
+                <a href="./index.html"><img src="./images/logo.png" alt="Logo" class="logomarca"></a>
+                <nav>
+                    <div>
+                        <span class="material-icons">email</span>
+                        <a href="mailto:info@petclinic.com.br">info@petclinic.com.br</a>
+                    </div>
+                    <div>
+                        <span class="material-icons">
+                            phone
+                            </span>
+                        <a href="tel:+558132072020">+55 81 3207-2020</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <section>
+            <h2>Reserva</h2>
+            <p class="valorConsulta">Valor da consulta R$ 69,90</p>
+    
+            <!-- barra de progresso -->
+            <div class="barra-container">
+                <ul class="barra-progresso">
+                    <li class="ativado"><span class="material-icons topo">done</span>Especialidade</li>
+                    <li class="ativado">Profissional</li>
+                    <li>Data e Hora</li>
+                    <li>Dados</li>
+                </ul>
+            </div>
+    
+            <h3>Veterinários</h3>
+            <p class="txtEscolha">Selecione qual Profissional irá atender seu pet</p>
+    
+            <!-- Slider main container -->
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <label class="card">
+                            <input type="radio" name="listaVets" hidden>
+                                <div class="card-img">
+                                    <img src="./images/vet1.jpg" alt="">
+                                </div>
+                                <div class="detalhes">
+                                    <div class="nome">Dr. Erick Aguiar</div>
+                                    <div class="profissao">Especialista</div>
+                                    <span class="material-icons escondeEscolha">done</span>
+                                </div>
+                        </label>
+                    </div>
+                    <div class="swiper-slide">
+                        <label class="card">
+                            <input type="radio" name="listaVets" hidden>
+                                <div class="card-img">
+                                    <img src="./images/vet2.jpg" alt="">
+                                </div>
+                                <div class="detalhes">
+                                    <div class="nome">Dra. Gabriela Martins</div>
+                                    <div class="profissao">Especialista</div>
+                                    <span class="material-icons escondeEscolha">done</span>
+                                </div>
+                        </label>
+                    </div>
+                    <div class="swiper-slide">
+                        <label class="card">
+                            <input type="radio" name="listaVets" hidden>
+                                <div class="card-img">
+                                    <img src="./images/vet3.jpg" alt="">
+                                </div>
+                                <div class="detalhes">
+                                    <div class="nome">Dr. Fernando Barreto</div>
+                                    <div class="profissao">Especialista</div>
+                                    <span class="material-icons escondeEscolha">done</span>
+                                </div>
+                        </label>
+                    </div>
+                    <div class="swiper-slide">
+                        <label class="card">
+                            <input type="radio" name="listaVets" hidden>
+                                <div class="card-img">
+                                    <img src="./images/vet4.jpg" alt="">
+                                </div>
+                                <div class="detalhes">
+                                    <div class="nome">Dr. Joaquim Augusto</div>
+                                    <div class="profissao">Especialista</div>
+                                    <span class="material-icons escondeEscolha">done</span>
+                                </div>
+                        </label>
+                    </div>
+                </div>
+      
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+      
+            </div>
+    
+        </section>
+    </div>
+    </section>
+    <div class="footer"><!-- Os botões de transição -->
+        <div class="navegaTelas">
+            <span>
+                <button class="secundario" id="voltarPg">Voltar</button>
+                <button class="primario2" id="proximo">Próximo</button>
+            </span>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/vet.js"></script>
+</body>
+<script>
+    const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+    slidesPerView: 3,
+    spaceBetween: 5,
+
+    // If we need pagination
+    pagination: {
+        el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+
+    
+    });
+
+</script>
+<script type="text/javascript">
+
+    //refresh automatico pra evitar bugs
+
+    (function() {
+        if( window.sessionStorage ) {
+    
+        if( !sessionStorage.getItem( 'firstLoad' ) ) {
+            sessionStorage[ 'firstLoad' ] = true;
+            window.location.reload();
+    
+        } else {
+            sessionStorage.removeItem( 'firstLoad' );
+        }
+        }
+    })();
+
+    apagavet()
+
+    const btnVoltar = document.querySelector('#voltarPg')
+    const btnPrx = document.querySelector('#proximo')
+    btnVoltar.addEventListener('click', (e) => {
+        e.preventDefault()
+        window.history.back()
+    })
+
+    const listaVets = document.getElementsByName('listaVets')
+        listaVets.forEach((v) => {
+            v.addEventListener('change', () => {
+                for(let i=0; i<listaVets.length; i++){
+                    if(listaVets[i].checked == true){
+                        listaVets[i].parentNode.setAttribute('style', 'border-color: #05a78e;')
+                        listaVets[i].parentNode.children[1].setAttribute('style', 'background-color: #05a78e;')
+                        listaVets[i].parentNode.children[2].children[2].setAttribute('class', 'material-icons escolheuPet')                                                
+                    }
+                    if(listaVets[i].checked == false){
+                        listaVets[i].parentNode.setAttribute('style', 'border-color: #2d333250;')
+                        listaVets[i].parentNode.children[1].setAttribute('style', 'background-color: #2d333270;')
+                        listaVets[i].parentNode.children[2].children[2].setAttribute('class', 'material-icons escondeEscolha')
+                    }
+                }
+            })
+        })
+
+    btnPrx.addEventListener('click', (e) => {
+        e.preventDefault()
+
+        //permitir ir para o prox apenas se um dos veterinários foi escolhido
+        const escolheuVet = document.querySelectorAll('input[type=radio]:checked').length
+        //pegar o dr veterinario selecionado
+        const doutor = document.querySelectorAll('input[type=radio]:checked')
+        
+        if(escolheuVet > 0){
+            criavet(doutor[0].parentNode.children[2].children[0].textContent)
+            location.assign('./horarios.html')
+        }else{
+            alert('Favor escolher ao menos 1 opção')
+        }
+
+    })
+</script>
+</html>

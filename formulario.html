@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link href="https://unpkg.com/swiper@8/swiper-bundle.min.css" rel="stylesheet"/>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/reserva.css">
+    <link rel="stylesheet" href="./styles/formulario.css">
+    <title>Pet Clinic - Formulário</title>
+</head>
+<body>
+    <div class="main-content">
+        <header>
+            <div>
+                <a href="./index.html"><img src="./images/logo.png" alt="Logo" class="logomarca"></a>
+                <nav>
+                    <div>
+                        <span class="material-icons">email</span>
+                        <a href="mailto:info@petclinic.com.br">info@petclinic.com.br</a>
+                    </div>
+                    <div>
+                        <span class="material-icons">
+                            phone
+                            </span>
+                        <a href="tel:+558132072020">+55 81 3207-2020</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <section>
+            <h2>Reserva</h2>
+            <p class="valorConsulta">Valor da consulta R$ 69,90</p>
+    
+            <!-- barra de progresso -->
+            <div class="barra-container">
+                <ul class="barra-progresso">
+                    <li class="ativado"><span class="material-icons topo">done</span>Especialidade</li>
+                    <li class="ativado"><span class="material-icons topo topo1">done</span>Profissional</li>
+                    <li class="ativado"><span class="material-icons topo topo2">done</span>Data e Hora</li>
+                    <li class="ativado">Dados</li>
+                </ul>
+            </div>
+
+            <div class="secoes">
+
+                <div class="sec1">
+        
+                    <h3 class="subtitulo">Dados do Pet</h3>
+                    
+                    <div class="form-pet">
+
+                        <div>
+                            <p>Nome</p>
+                            <input type="text" id="pet-name" required>
+                        </div>
+                        
+                        <div>
+                            <p>Raça</p>
+                            <input type="text" id="breed" required>
+                        </div>
+
+                        
+                        <div class="selecionaSexo">
+                            <p>Sexo</p>
+                            <div>
+                                <label><input type="radio" name="pet-sex" value="macho">Macho</label>
+                                <label><input type="radio" class="femea" name="pet-sex" value="femea">Fêmea</label>
+                            </div>
+                        </div>
+                        
+                        <div class="idade-pet">
+                            <p>Idade</p>
+                        <select name="" id="pet-age">
+                            <option value="0 a 3 meses">0 a 3 meses</option>
+                            <option value="4 a 6 meses">4 a 6 meses</option>
+                            <option value="7 a 9 meses">7 a 9 meses</option>
+                            <option value="10 a 12 meses">10 a 12 meses</option>
+                            <option value="1 ano a 2 anos">1 ano a 2 anos</option>
+                            <option value="3 ano a 5 anos">3 ano a 5 anos</option>
+                            <option value="+ de 5 anos">+ de 5 anos</option>
+                        </select>
+                        </div>
+                        
+                        <label class="infovacinas"><input type="checkbox" id="vacinas" value="vacinas em dias">Vacinas em dia</label>
+                    </div>
+
+                </div>
+                
+                <div class="sec2">
+                    <h3>Dados do dono</h3>
+
+                    <div class="form-humano">
+                        <div class="nome-humano">
+                            <p>Nome</p>
+                            <input type="text" id="nome" required>
+                        </div>
+                       
+                        <div class="contato">
+                            <p>E-mail</p>
+                            <input type="email" id="email" required>
+                        </div>
+    
+                        <div class="contato">
+                            <p>Telefone</p>
+                            <input type="tel" id="telefone" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="footer"><!-- Os botões de transição -->
+        <div class="navegaTelas">
+            <span>
+                <button class="secundario" id="voltarPg">Voltar</button>
+                <button class="primario2" id="proximo">Finalizar</button>
+            </span>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/form.js"></script>
+</body>
+
+<script type="text/javascript">
+
+    //refresh automatico pra evitar bugs
+
+    (function() {
+        if( window.sessionStorage ) {
+    
+        if( !sessionStorage.getItem( 'firstLoad' ) ) {
+            sessionStorage[ 'firstLoad' ] = true;
+            window.location.reload();
+    
+        } else {
+            sessionStorage.removeItem( 'firstLoad' );
+        }
+        }
+    })();
+
+    apagaform()
+
+    const btnVoltar = document.querySelector('#voltarPg')
+    const btnPrx = document.querySelector('#proximo')
+    btnVoltar.addEventListener('click', (e) => {
+        e.preventDefault()
+        window.history.back()
+    })
+
+    const nomepet = document.querySelector('#pet-name')
+    const raca = document.querySelector('#breed')
+    const petSex = document.getElementsByName('pet-sex')
+    const age = document.querySelector('#pet-age')
+    const vacina = document.querySelector('#vacinas')
+    const nome = document.querySelector('#nome')
+    const email = document.querySelector('#email')
+    const fone = document.querySelector('#telefone')
+
+    btnPrx.addEventListener('click', (e) => {
+        e.preventDefault()
+
+        //capturar sexo do animal
+        s = ''
+
+        for(let i = 0; i < petSex.length; i++){
+            if(petSex[i].checked == true){
+                s += petSex[i].value
+            }
+        }
+        
+        //permitir ir para o prox apenas se todos os campos foram preenchidos foi escolhido
+        if(nomepet.value == '' || raca.value == '' || s == '' || nome.value == '' || email.value == '' || fone.value == ''){
+            alert('Preencha todos os campos')
+        }else{
+            if(vacina.checked == true ){
+                criaform(nomepet.value, raca.value, s, age.value, 'vacinado', nome.value, email.value, fone.value)
+                location.assign('./checkout.html')
+            }else{
+                criaform(nomepet.value, raca.value, s, age.value, 'não vacinado', nome.value, email.value, fone.value)
+                location.assign('./checkout.html')
+            }
+        }
+        
+
+
+
+        
+
+    })
+</script>
+</html>

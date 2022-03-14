@@ -1,0 +1,180 @@
+h3{
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.secoes{
+    display: flex;
+    max-width: 850px;
+    justify-content: space-between;
+    margin: 50px auto;
+}
+
+.form-pet{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 7px;
+}
+
+.form-pet input{
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.selecionaSexo label input{
+    margin-right: 5px;
+}
+
+.femea{
+    margin-left: 10px;
+}
+
+.idade-pet select{
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.infovacinas input{
+    margin-right: 5px;
+}
+
+.form-humano{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 7px;
+}
+
+.nome-humano{
+    grid-column: 1/3;
+}
+
+.nome-humano input{
+    grid-column: 1/3;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.contato input{
+    padding: 10px;
+    border-radius: 8px;
+}
+
+@media(max-width:960px){
+    .secoes{
+        flex-direction: column;
+        margin: 0 20px;
+    }
+
+    .form-pet{
+        grid-template-columns: 1fr;
+        grid-template-rows: 80px 80px 1fr 1fr 1fr;
+        margin: 0 40px;
+        align-items: center;
+    }
+
+    .selecionaSexo div{
+        display: flex;
+        width: 100%;
+    }
+
+    .selecionaSexo div label{
+        display: flex;
+        width: 100px;
+        align-items: center;
+    }
+
+    .form-pet div input{
+        width: 100%;
+    }
+
+    .form-humano{
+        display: flex;
+        flex-direction: column;
+        margin: 0 40px;
+    }
+
+    .contato{
+        margin-top: 15px;
+    }
+
+    .contato input{
+        width: 100%;
+    }
+
+}
+
+/*Pág de Checkout*/
+
+.msg-container{
+    border: solid 2px #2d333250;
+    width: 650px;
+    margin: 30px auto;
+    position: relative;
+    background-color: #fff;
+}
+
+.msg-rsv{
+    width: 475px;
+    margin: 60px auto;
+    background-color: #fff;
+}
+
+.msg-rsv p{
+    margin: 20px;
+    font-size: 16px;
+}
+
+.confirmacao{
+    background-color: #05a78e; 
+    border-radius: 50%; 
+    width: 40px; 
+    height: 40px;
+    position: absolute;
+    margin: 0 auto;
+    top: -20px;
+    left: 300px;
+    
+}
+
+.confirmacao span{
+    color: #fff;
+    margin-top: 5px;
+    margin-left: 6px;
+    font-size: 30px;
+}
+
+@media(max-width:960px){
+    .msg-container{
+        width: 325px;
+    }
+
+    .msg-rsv{
+        margin: 45px auto;
+        width: 275px;
+    }
+
+    .msg-rsv p{
+        font-size: 12px;
+    }
+
+    .confirmacao{
+        left: 140px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .confirmacao span{
+        margin-top: 4px;
+        margin-left: 5px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+.go-back{
+    display: flex;
+    justify-content: center;
+}

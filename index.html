@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Pet Clinic - Home</title>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="./index.html"><img src="./images/logo.png" alt="Logo" class="logomarca"></a>
+            <nav>
+                <div>
+                    <span class="material-icons">email</span>
+                    <a href="mailto:info@petclinic.com.br">info@petclinic.com.br</a>
+                </div>
+                <div>
+                    <span class="material-icons">
+                        phone
+                        </span>
+                    <a href="tel:+558132072020">+55 81 3207-2020</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section class="hero-section">
+        <div class="hero-content">
+            <p>Por que eles são nossos melhores amigos</p>
+            <strong>Atenção veterinária <br> de primeira linha</strong>
+            <main>Reserve um horário para que seu pet seja atendido por um de nossos profissionais.</main>
+            <button class="primario" id="reserva">Fazer Reserva</button>
+        </div>
+        <img src="./images/mascote hero.png" alt="Mascote Pet Clinic">
+    </section>
+    <hr>
+    <section class="listaItemsClinica">
+        <div>
+            <span>
+                <p class="listaSubtitulo">Urgência</p>
+                <p class="listaSubtituloP">Estamos quando você mais precisa</p>
+            </span>
+        </div>
+        <div>
+            <span>
+                <p class="listaSubtitulo">Laboratório</p>
+            <p class="listaSubtituloP">Realizamos todos os tipos de exames</p>
+            </span>            
+        </div>
+        <div>
+            <span>
+                <p class="listaSubtitulo">Hospital</p>
+                <p class="listaSubtituloP">Quando seu pet precisa de cuidados únicos</p>
+            </span>            
+        </div>
+    </section>
+    <script type="text/javascript">
+        const btnRsv = document.querySelector('#reserva')
+        btnRsv.addEventListener('click', (e) => {
+            e.preventDefault()
+            location.assign('./reserva.html')
+        })
+    </script>
+</body>
+</html>

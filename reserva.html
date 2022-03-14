@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/reserva.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Pet Clinic - Especialidades</title>
+</head>
+<body>
+    <div class="main-content"><header>
+        <div>
+            <a href="./index.html"><img src="./images/logo.png" alt="Logo" class="logomarca"></a>
+            <nav>
+                <div>
+                    <span class="material-icons">email</span>
+                    <a href="mailto:info@petclinic.com.br">info@petclinic.com.br</a>
+                </div>
+                <div>
+                    <span class="material-icons">
+                        phone
+                        </span>
+                    <a href="tel:+558132072020">+55 81 3207-2020</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section>
+        <h2>Reserva</h2>
+        <p class="valorConsulta">Valor da consulta R$ 69,90</p>
+
+        <!-- barra de progresso -->
+        <div class="barra-container">
+            <ul class="barra-progresso">
+                <li class="ativado"><p>Especialidade</p> </li>
+                <li><p>Profissional</p></li>
+                <li><p>Data e Hora</p></li>
+                <li><p>Dados</p></li>
+            </ul>
+        </div>
+
+        <h3>Especialidade</h3>
+        <p class="txtEscolha">Escolha o tipo de pet que será atendido.</p>
+
+        <div class="escolheAnimal">
+            <label>
+                <input type="radio" name="listaPet" hidden value="Cachorro">
+                <i class="fa-solid fa-dog"></i>
+                <p>Cachorro</p>
+                <span class="material-icons escondeEscolha">done</span>
+            </label>
+            <label>
+                <input type="radio" name="listaPet" hidden value="Gato">
+                <i class="fa-solid fa-cat"></i>
+                <p>Gato</p>
+                <span class="material-icons escondeEscolha">done</span>
+            </label>
+            <label>
+                <input type="radio" name="listaPet" hidden value="Ave">
+                <i class="fa-solid fa-dove"></i>
+                <p>Ave</p>
+                <span class="material-icons escondeEscolha">done</span>
+            </label>
+            <label>
+                <input type="radio" name="listaPet" hidden value="Outros">
+                <i class="fa-solid fa-horse"></i>
+                <p>Outros</p>
+                <span class="material-icons escondeEscolha">done</span>
+            </label>
+    </section>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="navegaTelas">
+            <span>
+                <button class="secundario" id="voltarPg">Voltar</button>
+                <button class="primario2" id="proximo">Próximo</button>
+            </span>
+            
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/temp.js"></script>
+</body>
+
+<script type="text/javascript">
+
+    //refresh automatico pra evitar bugs
+
+    (function() {
+        if( window.sessionStorage ) {
+    
+        if( !sessionStorage.getItem( 'firstLoad' ) ) {
+            sessionStorage[ 'firstLoad' ] = true;
+            window.location.reload();
+    
+        } else {
+            sessionStorage.removeItem( 'firstLoad' );
+        }
+        }
+    })();
+
+    apagatemp()
+
+    //selecao do animal 
+
+    const listaAnimais = document.querySelectorAll('input')
+    listaAnimais.forEach((animal) => {
+        animal.addEventListener('change', () => {
+            for(let i = 0; i < listaAnimais.length; i++){
+                if(listaAnimais[i].checked == true){
+                    animal.parentNode.children[1].setAttribute('style', 'color: #05a78e;')
+                    animal.parentNode.setAttribute('style', 'border-color: #05a78e;')
+                    animal.parentNode.children[3].setAttribute('class', 'material-icons escolheuPet')                        
+                }
+                if(listaAnimais[i].checked == false){
+                    listaAnimais[i].parentNode.children[1].setAttribute('style', 'color: #2d3332;')
+                    listaAnimais[i].parentNode.children[3].setAttribute('class', 'material-icons escondeEscolha')
+                    listaAnimais[i].parentNode.setAttribute('style', 'border-color: #2d333225;')
+                }
+            }
+        })
+    })
+
+    const btnVoltar = document.querySelector('#voltarPg')
+    const btnPrx = document.querySelector('#proximo')
+    btnVoltar.addEventListener('click', (e) => {
+        e.preventDefault()
+        window.history.back()
+    })
+
+    btnPrx.addEventListener('click', (e) => {
+        e.preventDefault()
+
+        //permitir ir para o prox apenas se um dos animais foi escolhido
+
+        const animaisMarcado = document.querySelectorAll('input[type=radio]:checked').length
+        const animal = document.querySelectorAll('input[type=radio]:checked')
+        if(animaisMarcado > 0){
+            criatemp(animal[0].value)
+            location.assign('./veterinario.html')
+        }else{
+            alert('Favor escolher ao menos 1 opção')
+        }
+
+    })
+</script>
+</html>

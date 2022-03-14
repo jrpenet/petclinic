@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link href="https://unpkg.com/swiper@8/swiper-bundle.min.css" rel="stylesheet"/>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/formulario.css">
+    <title>Pet Clinic - Reserva efetuada</title>
+</head>
+<body>
+    <div class="main-content">
+        <header>
+            <div>
+                <a href="./index.html"><img src="./images/logo.png" alt="Logo" class="logomarca"></a>
+                <nav>
+                    <div>
+                        <span class="material-icons">email</span>
+                        <a href="mailto:info@petclinic.com.br">info@petclinic.com.br</a>
+                    </div>
+                    <div>
+                        <span class="material-icons">
+                            phone
+                            </span>
+                        <a href="tel:+558132072020">+55 81 3207-2020</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <section>
+            <h2 style="text-align: center; font-size: 2rem;">Reserva feita</h2>    
+            <div class="msg-container">
+                <div class="msg-rsv">
+                    <p>O horário escolhido para <span id="pet-name" style="text-transform: capitalize;"></span> foi reservado <br> para <span id="data"></span> às <span id="horario"></span> <br>com <span id="veterinario"></span></p>
+                    <p>Pedimos que chegue com 15 minutos de antecedência <br>para os procedimentos iniciais.</p>
+                    <p>O valor da consulta é de R$ 69,90, mas o valor pode <br>variar se houver a necessidade de medicamentos <br>ou procedimentos adicionais.</p>
+
+                    <p>Precisa de ajuda para encontrar a clínica?<br>
+                        Diriga-se através do Google Maps
+                    </p>
+                </div>
+                <div class="confirmacao">
+                    <span class="material-icons">done</span>
+                </div>
+            </div>
+
+            <div class="go-back"><a href="./">Voltar para o início</a></div>
+               
+        </section>
+    </div>
+    <div class="footer"><!-- Os botões de transição -->
+        
+    </div>
+</body>
+<script type="text/javascript" src="./js/temp.js"></script>
+<script type="text/javascript" src="./js/vet.js"></script>
+<script type="text/javascript" src="./js/hora.js"></script>
+<script type="text/javascript" src="./js/form.js"></script>
+<script type="text/javascript">
+
+    const nomeAnimal = document.querySelector('#pet-name')
+    nomeAnimal.textContent = form[0].petnome
+
+    const diaMarcado = document.querySelector('#data')
+    diaMarcado.textContent = hora[0].data
+
+    const horarioAt = document.querySelector('#horario')
+    horarioAt.textContent = hora[0].horario
+
+    const veterinario = document.querySelector('#veterinario')
+    veterinario.textContent = vet[0].veterinario
+    
+</script>
+</html>

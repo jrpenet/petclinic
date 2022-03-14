@@ -1,0 +1,70 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content{
+    flex-grow: 1;
+}
+
+.card-data{
+    display: flex;
+    height: 160px;
+    width: 70%;
+    flex-direction: column;
+    background-color: #fff;
+    justify-content: flex-start;
+    align-items: center;
+    border: solid 2px #05a78e50;
+    transition: 0.5s;
+    position: relative;
+}
+
+.info-data p{
+    margin: 5px;
+    font-weight: 700;
+}
+
+.info-horas{
+    width: 90%;
+}
+
+.horas{
+    margin: 1px 2px;
+    /* text-align: center; */
+    border-radius: 3px;
+    color: #2d333280;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.horas span{
+    color: #fff;
+}
+
+.horas p{
+    font-size: 14px;
+}
+
+@media(max-width: 960px){
+    .card-data{
+        width: 100%;
+        
+    }
+
+    .info-data p{
+        font-size: 11px;
+    }
+
+    .horas p{
+        font-size: 11px;
+    }
+}
+
+.footer{
+    /* position: absolute; */
+    bottom: 0;
+}
